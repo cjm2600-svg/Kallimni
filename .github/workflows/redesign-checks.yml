@@ -1,0 +1,22 @@
+name: Kallimni redesign checks
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [design/masculine-egyptian]
+  workflow_dispatch:
+jobs:
+  static-checks:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - name: Check JavaScript syntax
+        run: |
+          for f in js/*.js music/*.js; do node --check "$f"; done
+      - name: Check app layout and English-first interface
+        run: node tests/redesign-checks.cjs
+      - name: Validate lesson catalog
+        run: python3 agent/test_catalog.py
