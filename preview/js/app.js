@@ -423,6 +423,7 @@
             <button class="btn cyan" id="pp" ${st.hasTracks ? "" : "disabled"}>${st.playing ? "❚❚ Pause" : "▶ Play"}</button>
             <button class="btn narrow" id="nx" ${st.count > 1 ? "" : "disabled"}>⏭</button>
           </div>
+          <div class="seg" aria-label="Playlist controls"><button id="shuffle" class="${st.shuffle ? "on" : ""}">⇄ Shuffle ${st.shuffle ? "On" : "Off"}</button><button id="repeat">↻ Repeat ${st.repeat === "one" ? "One" : st.repeat === "off" ? "Off" : "All"}</button></div>
           <div class="vol"><button class="btn narrow" id="vd" style="height:26px">−</button>
             <div class="bar"><i style="width:${Math.round(st.volume * 100)}%"></i></div>
             <button class="btn narrow" id="vu" style="height:26px">+</button><span class="pct">${Math.round(st.volume * 100)}%</span></div>
@@ -434,6 +435,8 @@
       el.querySelector("#pp").onclick = () => st.playing ? KMusic.pause() : (st.enabled ? KMusic.play() : KMusic.setEnabled(true));
       el.querySelector("#pv").onclick = () => KMusic.prev();
       el.querySelector("#nx").onclick = () => KMusic.next();
+      el.querySelector("#shuffle").onclick = () => KMusic.setShuffle(!st.shuffle);
+      el.querySelector("#repeat").onclick = () => KMusic.setRepeat(st.repeat === "all" ? "one" : st.repeat === "one" ? "off" : "all");
       el.querySelector("#vd").onclick = () => KMusic.setVolume(st.volume - 0.05);
       el.querySelector("#vu").onclick = () => KMusic.setVolume(st.volume + 0.05);
       el.querySelector("#dl").onclick = () => KMusic.setDuckMode("lower");
