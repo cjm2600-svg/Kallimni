@@ -1,0 +1,20 @@
+{
+  "project": "Kallimni",
+  "curriculum": {
+    "generator": "ChatGPT scheduled task",
+    "lessons_per_day": 5,
+    "timezone": "America/New_York",
+    "topic": "Egyptian Arabic (Masri)",
+    "independent_ai_reviewer": false,
+    "paid_api_allowed": false
+  },
+  "publishing": {
+    "enabled": false,
+    "require_technical_checks": true,
+    "require_unique_lesson_ids": true,
+    "require_unique_phrase_ids": true,
+    "fail_closed": true,
+    "note": "ChatGPT task delivery to GitHub and app deployment are not yet verified. Lessons are drafts until pipeline is tested."
+  },
+  "separate_from_atlas": true
+}
