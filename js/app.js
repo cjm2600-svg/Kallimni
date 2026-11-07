@@ -367,13 +367,13 @@
     const back = () => current();
     const draw = () => {
       const st = KMusic.state;
-      setBar({ title: "♪ Nasheeds", back, timer: showTimer });
+      setBar({ title: "♪ Calm Music", back, timer: showTimer });
       const trackHtml = st.hasTracks
         ? `<div class="track"><b>${esc(st.track.title)}</b><span>${esc(st.track.artist)}${st.track.artist ? " · " : ""}${esc(st.track.license)}</span><span>${st.index + 1} of ${st.count}${st.ducked ? " · lowered for Arabic" : ""}</span></div>`
-        : `<div class="empty">No nasheeds bundled yet. Only licensed or public-domain recordings can be added — see <b>music/README.md</b>.</div>`;
+        : `<div class="empty">Calming instrumental ambience is ready.</div>`;
       const el = render(`
         <div class="panel" style="display:flex;flex-direction:column;gap:6px;flex:1">
-          <div class="toggle-row"><span class="lbl">Background music<small>Soft nasheeds while you study</small></span>
+          <div class="toggle-row"><span class="lbl">Background music<small>Gentle instrumental ambience while you study</small></span>
             <button class="sw ${st.enabled ? "on" : ""}" id="en" aria-label="Music on/off"></button></div>
           ${trackHtml}
           <div class="row">
