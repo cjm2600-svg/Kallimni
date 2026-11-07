@@ -399,3 +399,57 @@ html,body { width:100%;min-height:100%;height:100%;overflow:hidden;
  .section-label{margin:6px 0}.progress-lesson{padding:5px 2px;font-size:10px}
  .practice-art{height:85px;font-size:26px}.practice-art small{font-size:11px}
 }
+
+
+/* Heritage learning journey, cards, assessment, and completion */
+.journey-stage{flex:1;min-height:0;overflow-y:auto;display:flex;flex-direction:column;gap:12px;padding:24px 22px 26px;background:radial-gradient(ellipse at 100% 0%,rgba(198,155,89,.13),transparent 45%);scrollbar-width:none}
+.journey-stage .eyebrow{margin-top:4px}
+.journey-stage h1{font-size:clamp(28px,7vw,39px);line-height:1.09;letter-spacing:-.04em;color:#fff3da;margin:0}
+.journey-stage h1 em{color:#d5b98b;font-family:Georgia,serif;font-style:normal}
+.journey-stage .intro{font-size:13px;margin:0 0 8px;color:#c8d0c8}
+.journey-panel{padding:17px 15px 13px;border:1px solid #846e55;border-radius:17px;background:linear-gradient(145deg,#214956,#153541);box-shadow:0 15px 30px rgba(0,0,0,.17)}
+.journey-overline{font-size:10px;letter-spacing:.16em;font-weight:800;color:#d5b98b;margin:2px 4px 12px}
+.journey-panel .card{background:radial-gradient(ellipse at top,#2a5862,#173a47);border:1px solid #647a78;border-radius:13px;min-height:220px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;gap:9px;padding:22px 12px}
+.journey-panel .card .ar{font-size:clamp(35px,10vw,54px);line-height:1.5;color:#fff3da}
+.journey-panel .card .tr{font-size:16px;color:#d5b98b}
+.journey-panel .card .en{font-size:20px;color:#fff3da;font-weight:700}
+.journey-panel .card .note{font-size:12px;color:#c6c9bf}
+.journey-stage .dots{display:flex;justify-content:center;gap:6px;margin:13px 0 2px}
+.journey-stage .dots i{background:#52717a}.journey-stage .dots i.on{background:#c69b59}
+.journey-actions{display:flex;gap:9px;margin-top:7px}
+.journey-actions .btn{min-height:49px;border-radius:11px;background:#244b57;color:#fff3da;border:1px solid #627879;font-weight:750}
+.journey-actions .btn.primary{background:#c69b59;color:#102b39;border-color:#c69b59}
+.journey-actions .btn.cyan{background:#225c64;border-color:#527c7e}
+.journey-stage .progress{height:6px;background:#355563;border-radius:6px;overflow:hidden;flex:none}
+.journey-stage .progress i{background:#c69b59}
+.journey-stage .flip{min-height:270px;flex:1;max-height:380px;perspective:900px}
+.journey-stage .flip-inner{height:100%}
+.journey-stage .flip .face{border:1px solid #977f5b;border-radius:17px;background:radial-gradient(ellipse at 50% 20%,#2a5c65,#173a47 70%);display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:18px;gap:12px}
+.journey-stage .flip .ar{font-size:clamp(38px,11vw,59px);color:#fff3da;line-height:1.5}
+.journey-stage .flip .tr{font-size:18px;color:#d5b98b}
+.journey-stage .flip .en{font-size:24px;color:#fff3da}
+.journey-stage .flip .hint{font-size:12px;color:#d5b98b}
+.journey-stage .q{border:1px solid #8e795f;border-radius:16px;background:linear-gradient(155deg,#25525e,#173845);padding:23px 16px;min-height:145px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:12px}
+.journey-stage .q .qlab{font-size:12px;color:#d5b98b;letter-spacing:.06em}
+.journey-stage .q .ar{font-size:38px;line-height:1.5;color:#fff3da}
+.journey-stage .q .tr{font-size:16px;color:#d5b98b}
+.journey-stage .options{display:flex;flex-direction:column;gap:10px;overflow:visible}
+.journey-stage .opt{border:1px solid #536f76;background:#1b404c;color:#fff3da;border-radius:11px;min-height:55px;text-align:left;padding:10px 15px;font-size:14px}
+.journey-stage .opt .k{color:#d5b98b;margin-right:13px}
+.journey-stage .opt.sel{border-color:#d5b98b}.journey-stage .opt.right{background:#28594d;border-color:#77ad83}.journey-stage .opt.wrong{background:#683f3b;border-color:#bf8272}
+.journey-stage .done{background:linear-gradient(145deg,#24505c,#163844);border:1px solid #927953;border-radius:16px;min-height:250px;justify-content:center;gap:8px}
+.journey-stage .done .ar{color:#e7c78e;font-size:40px}.journey-stage .done .score{color:#fff3da;font-size:42px}
+.journey-stage .done .cap{color:#c9d0c8}
+@media(max-width:300px),(max-height:350px){
+ .journey-stage{padding:7px 9px;gap:4px}
+ .journey-stage .eyebrow{font-size:8px;margin:0}
+ .journey-stage h1{font-size:17px}.journey-stage .intro{font-size:9px;margin:0}
+ .journey-panel{padding:5px;border-radius:8px}.journey-overline{font-size:8px;margin:0 0 3px}
+ .journey-panel .card{min-height:84px;padding:5px;gap:1px}
+ .journey-panel .card .ar{font-size:25px}.journey-panel .card .tr{font-size:10px}.journey-panel .card .en{font-size:12px}
+ .journey-stage .dots{margin:3px 0}.journey-actions{gap:4px;margin:0}.journey-actions .btn{min-height:25px;font-size:10px}
+ .journey-stage .flip{min-height:110px;max-height:140px}.journey-stage .flip .ar{font-size:24px}.journey-stage .flip .tr{font-size:11px}.journey-stage .flip .en{font-size:13px}
+ .journey-stage .q{min-height:65px;padding:6px;gap:2px}.journey-stage .q .ar{font-size:22px}.journey-stage .q .tr{font-size:10px}
+ .journey-stage .options{gap:3px}.journey-stage .opt{min-height:24px;padding:3px 6px;font-size:10px}
+ .journey-stage .done{min-height:95px}.journey-stage .done .ar{font-size:23px}.journey-stage .done .score{font-size:24px}
+}
