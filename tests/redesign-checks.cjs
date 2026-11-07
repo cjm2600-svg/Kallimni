@@ -12,7 +12,7 @@ const checks = [
   ['English settings label', () => assert.match(app, /Settings/)],
   ['English quiz instructions', () => assert.match(app, /What does this mean\?/)],
   ['English pronunciation controls', () => assert.match(app, /Play slowly/)],
-  ['Arabic phrase rendering', () => assert.match(app, /lang=\\"ar\\"/)],
+  ['Arabic phrase rendering', () => assert.ok(app.includes('lang="ar"'))],
   ['Lessons are loaded', () => assert.match(lessons, /KALLIMNI_LESSONS/)]
 ];
 let failed = 0;
