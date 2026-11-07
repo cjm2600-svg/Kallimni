@@ -203,6 +203,8 @@
     const dots = lesson.phrases.map((_, j) => `<i class="${j === L.i ? "on" : (L.seen.has(j) ? "seen" : "")}"></i>`).join("");
     const last = L.i === n - 1;
     const el = render(`
+      <div class="journey-stage"><div class="eyebrow">SPEAK EGYPTIAN · LESSON ${LESSONS.indexOf(lesson)+1}</div><h1>Learn the language.<br><em>Live the culture.</em></h1><p class="intro">Listen, repeat, and make each phrase your own.</p>
+      <div class="journey-panel"><div class="journey-overline">PHRASE ${L.i+1} OF ${n}</div>
       <div class="card" id="card">
         <span class="step">${L.i + 1}/${n}</span>
         <div class="ar" lang="ar">${esc(p.ar)}</div>
@@ -210,8 +212,8 @@
         <div class="en">${esc(p.en)}</div>
         ${p.note ? `<div class="note">${esc(p.note)}</div>` : ""}
       </div>
-      <div class="dots">${dots}</div>
-      <div class="row">
+      </div><div class="dots">${dots}</div>
+      <div class="row journey-actions">
         <button class="btn narrow" id="prev" ${L.i === 0 ? "disabled" : ""} aria-label="Previous">‹</button>
         <button class="btn cyan" id="play">🔊 Play</button>
         <button class="btn narrow" id="slow" aria-label="Play slowly">🐢</button>
@@ -247,6 +249,7 @@
     const p = L.queue[0];
     const total = lesson.phrases.length + L.requeued.size;
     const el = render(`
+      <div class="journey-stage"><div class="eyebrow">REMEMBER WHAT YOU LEARN</div><h1>Make it <em>stick.</em></h1><p class="intro">Tap the card to reveal its meaning.</p>
       <div class="progress"><i style="width:${Math.round(100 * L.flashDone / total)}%"></i></div>
       <div class="flip" id="flip">
         <div class="flip-inner">
@@ -262,15 +265,15 @@
           </div>
         </div>
       </div>
-      <div class="row" id="pre">
+      <div class="row journey-actions" id="pre">
         <button class="btn cyan" id="play">🔊</button>
         <button class="btn primary" id="reveal" style="flex:2">Reveal</button>
       </div>
-      <div class="row" id="post" hidden>
+      <div class="row journey-actions" id="post" hidden>
         <button class="btn" id="again">↺ Again</button>
         <button class="btn narrow cyan" id="play2">🔊</button>
         <button class="btn primary" id="got">✓ Got it</button>
-      </div>`);
+      </div></div>`);
     let flipped = false;
     const $flip = el.querySelector("#flip");
     const reveal = () => {
@@ -330,9 +333,10 @@
       ? `<button class="opt" data-j="${j}"><span class="k">${j + 1}</span>${esc(o.en)}</button>`
       : `<button class="opt ar-opt" data-j="${j}" lang="ar">${esc(o.ar)}</button>`).join("");
     const el = render(`
+      <div class="journey-stage"><div class="eyebrow">YOUR MOMENT TO SHINE</div><h1>Test your <em>Egyptian.</em></h1><p class="intro">Question ${L.qi+1} of ${L.quiz.length}</p>
       <div class="progress"><i style="width:${Math.round(100 * L.qi / L.quiz.length)}%"></i></div>
       <div class="q">${prompt}</div>
-      <div class="options">${opts}</div>`);
+      <div class="options">${opts}</div></div>`);
     const $opts = [...el.querySelectorAll(".opt")];
     let sel = -1, answered = false;
     const select = j => { sel = (j + $opts.length) % $opts.length; $opts.forEach((b, k) => b.classList.toggle("sel", k === sel)); };
@@ -380,7 +384,7 @@
     const msg = pct === 100 ? "ممتاز!" : pct >= 67 ? "برافو!" : "كمّل!";
     const tr = pct === 100 ? "mumtaaz! — excellent!" : pct >= 67 ? "bravo! — well done!" : "kammil! — keep going!";
     const el = render(`
-      <div class="screen done" style="position:static;padding:0;flex:1">
+      <div class="journey-stage"><div class="eyebrow">LESSON COMPLETE</div><h1>You showed <em>up.</em></h1><div class="screen done" style="position:static;padding:0;flex:1">
         <div class="ar" lang="ar">${msg}</div>
         <div class="tr">${tr}</div>
         <div class="score">${L.correct}/${L.quiz.length}</div>
@@ -390,7 +394,7 @@
       <div class="row">
         <button class="btn" id="again">↺ Redo</button>
         <button class="btn primary" id="homeB">Home ›</button>
-      </div>`);
+      </div></div>`);
     el.querySelector("#again").onclick = () => startLesson(lesson.id);
     el.querySelector("#homeB").onclick = home;
     keys = { side: home, down: home, up: () => startLesson(lesson.id) };
