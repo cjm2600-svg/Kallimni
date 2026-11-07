@@ -24,7 +24,7 @@
     console.warn('Using built-in lessons:', err.message);
   } finally {
     const app = document.createElement('script');
-    app.src = 'js/app.js';
+    app.src = 'js/app.js?v=canva-rebuild-2';
     document.body.appendChild(app);
   }
 })();
