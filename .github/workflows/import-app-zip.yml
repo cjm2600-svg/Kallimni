@@ -1,0 +1,45 @@
+name: Import Kallimni app ZIP
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'kallimni_agent_review_ready.zip'
+permissions:
+  contents: write
+jobs:
+  import-app:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Extract approved app files
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -f kallimni_agent_review_ready.zip
+          mkdir -p /tmp/kallimni-extract
+          unzip -q kallimni_agent_review_ready.zip -d /tmp/kallimni-extract
+          src=/tmp/kallimni-extract/kallimni
+          test -f "$src/index.html"
+          test -f "$src/js/app.js"
+          test -f "$src/js/catalog-loader.js"
+          mkdir -p css js music audio agent lessons
+          cp "$src/index.html" .
+          cp "$src/icon.png" .
+          cp "$src/css/app.css" css/
+          cp "$src/js/"*.js js/
+          cp "$src/music/"*.js music/
+          cp "$src/music/README.md" music/
+          cp "$src/audio/README.md" audio/
+          cp "$src/agent/draft.py" "$src/agent/candidates.json" agent/
+          # Keep existing validation and policies. Do not enable the ZIP's daily workflow.
+          python agent/test_catalog.py
+      - name: Commit imported app only
+        shell: bash
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add index.html icon.png css js music audio agent/draft.py agent/candidates.json
+          if ! git diff --cached --quiet; then
+            git commit -m "Import existing Kallimni app from uploaded ZIP"
+            git push
+          fi
