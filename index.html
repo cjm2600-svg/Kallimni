@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=240, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#0b1533">
+  <title>Kallimni</title>
+  <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+  <div id="app" aria-live="polite">
+    <header id="bar">
+      <button id="backBtn" class="icon-btn" aria-label="Back" hidden>‹</button>
+      <div id="barTitle"><span class="brand-ar">كلّمني</span><span class="brand-en">Kallimni</span></div>
+      <span id="timer" hidden>0:00</span>
+      <button id="musicBtn" class="icon-btn" aria-label="Music">♪</button>
+    </header>
+    <main id="view"></main>
+    <div id="toast" role="status"></div>
+  </div>
+
+  <script src="js/lessons.js"></script>
+  <script src="music/playlist.js"></script>
+  <script src="js/storage.js"></script>
+  <script src="js/speech.js"></script>
+  <script src="js/music.js"></script>
+  <script src="js/hardware.js"></script>
+  <script src="js/catalog-loader.js"></script>
+</body>
+</html>

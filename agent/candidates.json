@@ -1,0 +1,18 @@
+[
+ {"id":"l4","title":"At the Family Table","arTitle":"على السفرة","icon":"🍽️","blurb":"Simple expressions at a family meal.","phrases":[
+ {"id":"l4p1","ar":"اتفضل","tr":"itfaḍḍal","en":"Please, go ahead / help yourself","note":"Said to a man; to a woman: itfaḍḍali."},
+ {"id":"l4p2","ar":"الأكل حلو","tr":"il-akl ḥilw","en":"The food is delicious","note":"A friendly compliment after a meal."},
+ {"id":"l4p3","ar":"تسلم إيدك","tr":"tislam iid-ak","en":"Bless your hands (thanks for cooking)","note":"To a woman: tislam iidik; common compliment."},
+ {"id":"l4p4","ar":"أنا شبعان","tr":"ana shabʿaan","en":"I'm full","note":"Male speaker; female speaker: ana shabʿaana."},
+ {"id":"l4p5","ar":"ممكن ميه؟","tr":"mumkin mayya?","en":"Can I have water?","note":"Casual request."},
+ {"id":"l4p6","ar":"بالهنا والشفا","tr":"bil-hana wish-shifa","en":"Enjoy your meal","note":"A warm wish said around food."}
+ ]},
+ {"id":"l5","title":"Visiting Relatives","arTitle":"زيارة العيلة","icon":"🏠","blurb":"Useful expressions when visiting family.","phrases":[
+ {"id":"l5p1","ar":"عاملين إيه؟","tr":"ʿaamliin eh?","en":"How are you all doing?","note":"To a group."},
+ {"id":"l5p2","ar":"نورتونا","tr":"nawwartuuna","en":"You brightened our home","note":"Welcoming guests (plural)."},
+ {"id":"l5p3","ar":"وحشتوني","tr":"waḥashtuunii","en":"I missed you all","note":"To several people."},
+ {"id":"l5p4","ar":"الحمد لله على السلامة","tr":"il-ḥamdu lillaah ʿas-salaama","en":"Glad you arrived safely","note":"Often said to someone after travel."},
+ {"id":"l5p5","ar":"أشوفك قريب","tr":"ashuufak ʾurayyib","en":"See you soon","note":"To a man; to a woman: ashuufik ʾurayyib."},
+ {"id":"l5p6","ar":"ربنا يخليك","tr":"rabbina yikhalliik","en":"May God keep you well","note":"Warm expression of gratitude or affection."}
+ ]}
+]
