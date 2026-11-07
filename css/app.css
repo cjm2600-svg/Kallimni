@@ -203,3 +203,125 @@ html, body {
 .screen { background: linear-gradient(180deg, rgba(13,40,51,.72),rgba(13,40,51,.87)); }
 .today { background: linear-gradient(135deg,#ad7238,#d7a45c); box-shadow: 0 2px 0 #704d2b; }
 .card,.lesson,.stat,.opt,.track { background-color: rgba(25,63,73,.93); }
+
+/* Kallimni Egyptian Heritage redesign — responsive, compact-R1 friendly. */
+:root {
+  --navy:#102b39;--navy-2:#183c49;--navy-3:#24515c;--line:#7b7865;
+  --orange:#c69b59;--orange-soft:#e7c48e;--cyan:#79c2bc;
+  --cyan-dim:#276c6b;--text:#fff3da;--muted:#c7c7b5;
+}
+html,body { width:100%;min-height:100%;height:100%;overflow:hidden;
+  background:#102b39; color:var(--text); }
+#app { width:100%;height:100%;max-width:520px;margin:0 auto;
+  background:linear-gradient(165deg,rgba(13,39,51,.82),rgba(16,43,57,.98)),
+    radial-gradient(ellipse at 75% 4%,#8e6948 0,transparent 60%);
+  border-left:1px solid rgba(198,155,89,.25);border-right:1px solid rgba(198,155,89,.25);
+}
+#app::before { inset:0;opacity:.08;background:
+  repeating-linear-gradient(90deg,transparent 0 28px,#c69b59 29px,transparent 30px 58px);
+}
+#bar { height:56px;padding:0 16px;gap:10px;
+  background:linear-gradient(110deg,#102b39,#1e5057);
+  border-bottom:1px solid rgba(198,155,89,.65); }
+.brand-ar {font-size:23px;color:#e7c48e}
+.brand-en {font-size:15px;color:#fff3da;letter-spacing:1px}
+.bar-sub {font-size:15px}
+.icon-btn {width:36px;height:36px;border-radius:12px;background:#29505a;color:#e7c48e}
+#musicBtn.on {background:#c69b59;color:#102b39}
+#view {background:transparent}
+.screen {padding:18px;gap:13px;background:linear-gradient(180deg,rgba(16,43,57,.12),rgba(16,43,57,.35));}
+.today {position:relative;overflow:hidden;min-height:170px;padding:22px;gap:14px;
+  border:1px solid #e5bb7a;border-radius:22px;color:#fff8e8;
+  background:linear-gradient(90deg,rgba(12,38,48,.94),rgba(20,51,60,.48)),
+    radial-gradient(ellipse at 90% 20%,rgba(244,183,99,.78),transparent 56%),
+    linear-gradient(165deg,#9c6546,#cf9d5b 60%,#375d60);
+  box-shadow:0 12px 30px rgba(0,0,0,.2);
+}
+.today::before {content:"";position:absolute;right:-12px;bottom:-1px;width:48%;height:76%;opacity:.55;
+  background:linear-gradient(140deg,transparent 49%,#e9bf81 50%,#ad7547 51%,transparent 52%) center bottom/100% 85% no-repeat,
+  linear-gradient(140deg,transparent 47%,#c58d59 48% 54%,transparent 55%) 80% bottom/72% 62% no-repeat;
+  pointer-events:none;}
+.today .big {font-size:27px;z-index:1;color:#f3d6a5}
+.today .t1 {font-size:22px;line-height:1.25}
+.today .t2 {font-size:14px;opacity:.95}
+.today span {position:relative;z-index:1}
+.stats {gap:10px}
+.stat {min-height:64px;padding:10px;border:1px solid rgba(198,155,89,.4);border-radius:16px;
+  background:rgba(25,62,70,.88);flex-direction:column;align-items:center;gap:2px}
+.stat b {font-size:21px;color:#e7c48e}
+.stat span {font-size:12px}
+.lesson-list {gap:9px}
+.lesson {min-height:69px;padding:12px 15px;gap:13px;border-radius:16px;
+  border:1px solid rgba(198,155,89,.3);background:rgba(26,64,72,.93)}
+.lesson .ico {font-size:24px;width:35px}
+.lesson .nm b {font-size:16px}
+.lesson .nm span {font-size:13px}
+.badge {font-size:11px;padding:5px 9px;background:#294d57;color:#e7c48e}
+.badge.done {background:#245b50;color:#d9f3df}
+.home-foot {font-size:12px;padding:4px 2px}
+.link {font-size:13px;color:#e7c48e}
+.card {padding:20px;border-radius:22px;border:1px solid rgba(198,155,89,.5);
+  background:linear-gradient(145deg,rgba(32,77,80,.98),rgba(19,52,65,.98));gap:12px}
+.ar {font-size:clamp(29px,8vw,44px);line-height:1.5}
+.ar.sm {font-size:clamp(25px,6vw,35px)}
+.tr {font-size:17px;color:#a6e0d7}
+.en {font-size:18px;color:#f0ca93}
+.note {font-size:13px;max-height:100px}
+.step {top:14px;left:16px;font-size:12px}
+.hint {bottom:14px;font-size:12px}
+.row {gap:10px}
+.btn {height:52px;border-radius:14px;font-size:15px;background:#24515c;border-color:rgba(198,155,89,.4)}
+.btn.primary {background:#c69b59;border-color:#e7c48e;color:#102b39}
+.btn.cyan {background:#79c2bc;border-color:#79c2bc;color:#102b39}
+.btn.narrow {width:54px;font-size:21px}
+.dots {height:8px;gap:6px}
+.dots i {width:7px;height:7px}
+.q {padding:12px 5px}
+.q .qlab {font-size:15px;margin-bottom:12px}
+.options {gap:10px}
+.opt {min-height:50px;border-radius:14px;padding:12px;font-size:15px;border-color:rgba(198,155,89,.45)}
+.opt .k {font-size:13px;width:20px}
+.opt.ar-opt {font-size:23px}
+.progress {height:7px}
+.score {font-size:62px;color:#e7c48e}
+.done .ar {font-size:38px;color:#e7c48e}
+.cap,.panel .sub {font-size:12px}
+.panel h3 {font-size:17px;color:#e7c48e}
+.track {padding:12px;border-radius:14px}
+.track b {font-size:15px}
+.track span {font-size:12px}
+.toggle-row .lbl {font-size:15px}
+.toggle-row .lbl small {font-size:12px}
+#toast {left:16px;right:16px;bottom:16px;padding:12px;border-color:#c69b59;
+  background:rgba(17,47,57,.98);font-size:13px}
+@media (max-width:300px),(max-height:350px) {
+  html,body {width:100%;height:100%;font-size:13px}
+  #app {max-width:none}
+  #bar {height:32px;padding:0 6px;gap:6px}
+  .brand-ar {font-size:16px}.brand-en {font-size:12px}.bar-sub {font-size:12px}
+  .icon-btn {width:26px;height:26px;border-radius:8px}
+  .screen {padding:7px;gap:5px}
+  .today {min-height:49px;padding:5px 8px;gap:7px;border-radius:9px}
+  .today .big {font-size:19px}.today .t1 {font-size:12px}.today .t2 {font-size:10px}
+  .stats {gap:5px}.stat {min-height:22px;padding:2px 5px;border-radius:8px;flex-direction:row;gap:4px}
+  .stat b {font-size:13px}.stat span {font-size:9px}
+  .lesson-list {gap:3px}.lesson {min-height:29px;padding:2px 6px;gap:5px;border-radius:8px}
+  .lesson .ico {font-size:15px;width:21px}.lesson .nm b {font-size:11px}
+  .lesson .nm span {font-size:9px}.badge {font-size:9px;padding:2px 4px}
+  .home-foot {font-size:9px;padding:0}.link {font-size:10px}
+  .card {padding:7px;border-radius:10px;gap:3px}
+  .ar {font-size:26px}.ar.sm {font-size:21px}.tr {font-size:12px}
+  .en {font-size:12px}.note {font-size:10px;max-height:38px}
+  .step {top:4px;left:7px;font-size:9px}.hint {bottom:3px;font-size:9px}
+  .row {gap:5px}.btn {height:32px;border-radius:8px;font-size:11px}
+  .btn.narrow {width:35px;font-size:16px}.dots {height:5px;gap:3px}
+  .dots i {width:5px;height:5px}
+  .q {padding:2px}.q .qlab {font-size:10px;margin-bottom:2px}
+  .options {gap:3px}.opt {min-height:0;padding:2px 7px;border-radius:7px;font-size:11px}
+  .opt .k {font-size:9px;width:12px}.opt.ar-opt {font-size:15px}
+  .progress {height:4px}.score {font-size:37px}.done .ar {font-size:24px}
+  .cap,.panel .sub {font-size:10px}.panel h3 {font-size:13px}
+  .track {padding:5px}.track b {font-size:11px}.track span {font-size:9px}
+  .toggle-row .lbl {font-size:11px}.toggle-row .lbl small {font-size:9px}
+  #toast {left:7px;right:7px;bottom:7px;padding:5px;font-size:10px}
+}
