@@ -325,3 +325,77 @@ html,body { width:100%;min-height:100%;height:100%;overflow:hidden;
   .toggle-row .lbl {font-size:11px}.toggle-row .lbl small {font-size:9px}
   #toast {left:7px;right:7px;bottom:7px;padding:5px;font-size:10px}
 }
+
+
+/* Kallimni heritage UI: actual new screens, not a recolor of the legacy layout. */
+#app{background:#102b39;background-image:radial-gradient(ellipse at 100% 0,rgba(198,155,89,.12),transparent 45%)}
+#bar{height:62px;background:#102b39;border-bottom:1px solid rgba(213,185,139,.2)}
+.brand-ar{font-size:24px}.brand-en{font-size:17px;letter-spacing:.04em}
+.screen{padding:0;gap:0;background:none}
+.heritage-scroll{flex:1;min-height:0;overflow-y:auto;overscroll-behavior:contain;padding:26px 23px 34px;scrollbar-width:none}
+.heritage-scroll::-webkit-scrollbar{display:none}
+.eyebrow{color:#d5b98b;letter-spacing:.18em;font-weight:800;font-size:10px}
+.eyebrow-ar{float:right;font-size:14px;letter-spacing:0;font-family:var(--ar-font)}
+.heritage-scroll h1{font-size:clamp(35px,9vw,49px);font-weight:750;line-height:1.09;letter-spacing:-.045em;margin:15px 0 10px;color:#fff3da}
+.heritage-scroll h1 em{font-style:normal;color:#d5b98b;font-family:Georgia,serif}
+.intro{font-size:14px;color:#c7c7b5;line-height:1.5;margin:0 0 23px}
+.cairo-hero{height:235px;border-radius:19px;position:relative;overflow:hidden;background:linear-gradient(180deg,#2d4c57 0%,#966c5d 45%,#d5a06b 77%,#284e59 100%);border:1px solid #a68762;box-shadow:0 18px 32px rgba(0,0,0,.28)}
+.cairo-hero::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(9,32,43,.88),rgba(9,32,43,.38) 66%,transparent),linear-gradient(0deg,rgba(11,34,44,.75),transparent 60%)}
+.cairo-sun{position:absolute;width:125px;height:125px;right:36px;top:23px;border-radius:50%;background:#f4ce8b;box-shadow:0 0 60px 35px rgba(240,186,107,.34)}
+.cairo-pyramid{position:absolute;width:0;height:0;border-left:90px solid transparent;border-right:90px solid transparent;border-bottom:130px solid #7b5d50;right:-12px;bottom:38px;filter:drop-shadow(-8px 9px 8px #614a40)}
+.cairo-pyramid.p2{border-left-width:62px;border-right-width:62px;border-bottom-width:90px;right:113px;bottom:38px;opacity:.8}
+.cairo-skyline{position:absolute;left:0;right:0;bottom:36px;height:28px;background:repeating-linear-gradient(90deg,#334e51 0 18px,#49605b 18px 25px,#334e51 25px 38px);clip-path:polygon(0 40%,8% 40%,8% 0,11% 0,11% 38%,20% 38%,20% 20%,24% 20%,24% 50%,35% 50%,35% 0,40% 0,40% 42%,100% 42%,100% 100%,0 100%);opacity:.6}
+.cairo-river{position:absolute;bottom:0;left:0;right:0;height:40px;background:repeating-linear-gradient(175deg,#214f59 0 8px,#527679 9px 10px,#214f59 12px 22px)}
+.hero-content{position:absolute;z-index:1;left:19px;bottom:22px;display:flex;flex-direction:column;gap:6px}
+.hero-tag{font-size:9px;letter-spacing:.16em;font-weight:800;color:#f3d5a4}
+.hero-ar{font:700 30px/1.4 var(--ar-font);color:#fff4d9}
+.hero-content strong{font-size:19px}.hero-content small{font-size:12px;color:#eee1c9}
+.heritage-cta{width:100%;min-height:56px;margin:13px 0 22px;padding:0 19px;background:#c69b59;color:#102b39;border-radius:12px;display:flex;align-items:center;justify-content:space-between;font-size:15px;font-weight:800}
+.heritage-cta span{font-size:24px}
+.heritage-metrics{display:grid;grid-template-columns:1fr 1fr;gap:11px;margin:0 0 25px}
+.heritage-metrics>div{background:#1a3b47;border:1px solid #48606a;border-radius:13px;padding:15px 17px;display:flex;flex-direction:column;gap:5px}
+.heritage-metrics b{font-size:27px;color:#fff3da;line-height:1}.heritage-metrics b span{font-size:15px;color:#d5b98b}
+.heritage-metrics small{font-size:12px;color:#c7c7b5}
+.section-heading{display:flex;align-items:end;justify-content:space-between;margin-bottom:12px}
+.section-heading h2{margin:5px 0 0;font-size:23px;color:#fff3da}
+.section-heading button{font-size:12px;color:#d5b98b;padding:9px}
+.heritage-list{display:flex;flex-direction:column;gap:9px}
+.heritage-lesson{width:100%;display:flex;align-items:center;text-align:left;gap:15px;min-height:75px;padding:14px;background:#1a3b47;border:1px solid #48606a;border-radius:13px}
+.lesson-index{font:700 24px Georgia,serif;color:#d5b98b;min-width:35px}
+.lesson-copy{flex:1;display:flex;flex-direction:column;gap:3px}
+.lesson-copy b{font-size:15px;color:#fff3da}
+.lesson-copy small{font-size:12px;color:#c7c7b5}
+.lesson-arrow{font-size:22px;color:#d5b98b}
+.settings-link{display:block;margin:24px auto 0;color:#d5b98b;font-size:12px;padding:8px}
+.heritage-nav{flex:none;display:grid;grid-template-columns:repeat(4,1fr);min-height:69px;padding:8px 8px max(8px,env(safe-area-inset-bottom));background:#112d3a;border-top:1px solid rgba(213,185,139,.3)}
+.heritage-nav button{display:flex;flex-direction:column;align-items:center;gap:2px;justify-content:center;color:#aab9b4;font-size:10px;font-weight:600}
+.heritage-nav button span{font-size:23px;line-height:1.2}
+.heritage-nav button.active{color:#e9c58c}
+.progress-hero{display:flex;align-items:center;gap:25px;padding:23px 17px;background:#1a3b47;border:1px solid #48606a;border-radius:17px;margin:23px 0 14px}
+.progress-ring{width:132px;height:132px;flex:none;border-radius:50%;background:conic-gradient(#c69b59 var(--pct),#345563 0);display:grid;place-items:center}
+.progress-ring>div{width:106px;height:106px;border-radius:50%;background:#1a3b47;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.progress-ring strong{font-size:29px;color:#fff3da}.progress-ring small{font-size:11px;color:#c7c7b5}
+.progress-hero>div:last-child{display:flex;flex-direction:column;gap:7px}.progress-hero>div:last-child b{font-size:20px}.progress-hero>div:last-child span{font-size:12px;color:#c7c7b5}
+.section-label{margin:25px 0 12px}.progress-lesson{display:flex;justify-content:space-between;padding:14px 3px;border-bottom:1px solid #45606b;font-size:14px}.progress-lesson b{color:#d5b98b;font-size:12px}
+.practice-art{height:220px;border-radius:18px;background:radial-gradient(circle at 50% 40%,#426a6c,#193e4a 65%);border:1px solid #977f5b;display:flex;flex-direction:column;align-items:center;justify-content:center;font:700 52px var(--ar-font);color:#f0d2a1}
+.practice-art small{font:italic 17px system-ui;color:#c7c7b5}
+.microcopy{font-size:12px;color:#c7c7b5;text-align:center}
+@media(max-width:300px),(max-height:350px){
+ #bar{height:32px}.screen{padding:0;gap:0}
+ .heritage-scroll{padding:9px 10px 8px}.heritage-scroll h1{font-size:19px;margin:5px 0}.intro{font-size:10px;margin-bottom:7px}
+ .eyebrow{font-size:8px}.eyebrow-ar{font-size:10px}
+ .cairo-hero{height:70px;border-radius:9px}.cairo-sun{width:40px;height:40px;top:4px;right:15px}
+ .cairo-pyramid{transform:scale(.4);transform-origin:bottom right}.cairo-pyramid.p2{display:none}
+ .hero-content{left:8px;bottom:5px;gap:0}.hero-tag{font-size:7px}.hero-ar{font-size:15px}.hero-content strong{font-size:11px}.hero-content small{font-size:8px}
+ .heritage-cta{min-height:26px;margin:5px 0;padding:0 8px;font-size:10px;border-radius:6px}.heritage-cta span{font-size:13px}
+ .heritage-metrics{gap:5px;margin:0 0 7px}.heritage-metrics>div{padding:5px 7px;gap:1px;border-radius:6px}.heritage-metrics b{font-size:15px}.heritage-metrics small{font-size:8px}
+ .section-heading{margin-bottom:4px}.section-heading h2{font-size:13px}.section-heading button{font-size:9px;padding:2px}
+ .heritage-list{gap:4px}.heritage-lesson{min-height:32px;padding:3px 7px;gap:7px;border-radius:7px}
+ .lesson-index{font-size:14px;min-width:20px}.lesson-copy b{font-size:10px}.lesson-copy small{font-size:9px}.lesson-arrow{font-size:14px}
+ .settings-link{margin:6px auto 0;font-size:9px;padding:2px}
+ .heritage-nav{min-height:30px;padding:2px 3px}.heritage-nav button{font-size:8px;gap:0}.heritage-nav button span{font-size:13px}
+ .progress-hero{padding:6px;gap:8px;margin:8px 0}.progress-ring{width:60px;height:60px}.progress-ring>div{width:48px;height:48px}.progress-ring strong{font-size:16px}.progress-ring small{font-size:8px}
+ .progress-hero>div:last-child b{font-size:12px}.progress-hero>div:last-child span{font-size:9px}
+ .section-label{margin:6px 0}.progress-lesson{padding:5px 2px;font-size:10px}
+ .practice-art{height:85px;font-size:26px}.practice-art small{font-size:11px}
+}

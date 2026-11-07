@@ -103,46 +103,84 @@
   // ======================================================
   //  HOME
   // ======================================================
+  function navigation(active = "home") {
+    return `<nav class="heritage-nav" aria-label="Main navigation">
+      <button data-nav="home" class="${active === "home" ? "active" : ""}"><span>⌂</span>Home</button>
+      <button data-nav="learn" class="${active === "learn" ? "active" : ""}"><span>▤</span>Learn</button>
+      <button data-nav="practice" class="${active === "practice" ? "active" : ""}"><span>◇</span>Practice</button>
+      <button data-nav="progress" class="${active === "progress" ? "active" : ""}"><span>◷</span>Progress</button>
+    </nav>`;
+  }
+  function bindNavigation(el) {
+    el.querySelectorAll("[data-nav]").forEach(btn => btn.onclick = () => {
+      const page = btn.dataset.nav;
+      if (page === "progress") return progressView();
+      if (page === "practice") return practiceView();
+      if (page === "learn") return lessonLibrary();
+      home();
+    });
+  }
+  function lessonLibrary() {
+    current = lessonLibrary; KSpeech.stop(); stopTimer(); setBar({});
+    const el = render(`<div class="heritage-scroll">
+      <div class="eyebrow">YOUR JOURNEY</div><h1>Explore lessons</h1><p class="intro">Real Egyptian Arabic, one conversation at a time.</p>
+      <div class="heritage-list">${LESSONS.map((l,i)=>`<button class="heritage-lesson" data-id="${l.id}"><span class="lesson-index">${String(i+1).padStart(2,"0")}</span><span class="lesson-copy"><b>${esc(l.title)}</b><small lang="ar">${esc(l.arTitle)}</small><small>${l.phrases.length} everyday phrases</small></span><span class="lesson-arrow">↗</span></button>`).join("")}</div>
+    </div>${navigation("learn")}`);
+    el.querySelectorAll("[data-id]").forEach(btn=>btn.onclick=()=>startLesson(btn.dataset.id));
+    bindNavigation(el);
+    keys={side:()=>startLesson(LESSONS[0].id),up:()=>{},down:()=>{}};
+  }
+  function practiceView() {
+    current = practiceView; KSpeech.stop(); stopTimer(); setBar({});
+    const el=render(`<div class="heritage-scroll">
+      <div class="eyebrow">BUILD CONFIDENCE</div><h1>Practice makes fluent.</h1>
+      <p class="intro">Flip cards, listen closely, and put your Egyptian Arabic to work.</p>
+      <div class="practice-art" aria-hidden="true">إزيّك؟<small>izzayyak?</small></div>
+      <button class="heritage-cta" id="practiceStart">Start practicing <span>↗</span></button>
+      <p class="microcopy">Each session includes flashcards and a short quiz.</p>
+    </div>${navigation("practice")}`);
+    el.querySelector("#practiceStart").onclick=()=>startLesson(todaysLesson().lesson.id);
+    bindNavigation(el); keys={side:()=>startLesson(todaysLesson().lesson.id)};
+  }
+  function progressView() {
+    current=progressView; KSpeech.stop(); stopTimer(); setBar({});
+    const completed=LESSONS.filter(l=>S.progress[l.id]?.completed).length;
+    const pct=Math.round(100*completed/LESSONS.length);
+    const el=render(`<div class="heritage-scroll">
+      <div class="eyebrow">YOUR PROGRESS</div><h1>Every phrase counts.</h1><p class="intro">A little Egyptian Arabic every day adds up.</p>
+      <div class="progress-hero"><div class="progress-ring" style="--pct:${pct}%"><div><strong>${pct}%</strong><small>complete</small></div></div><div><b>${completed} of ${LESSONS.length}</b><span>Lessons completed</span></div></div>
+      <div class="heritage-metrics"><div><b>${streakNow()}</b><small>Day streak</small></div><div><b>${learnedCount()}</b><small>Phrases learned</small></div></div>
+      <div class="eyebrow section-label">YOUR LESSONS</div>
+      ${LESSONS.map(l=>`<div class="progress-lesson"><span>${esc(l.title)}</span><b>${S.progress[l.id]?.completed ? S.progress[l.id].best+"%" : "Not started"}</b></div>`).join("")}
+    </div>${navigation("progress")}`);
+    bindNavigation(el); keys={side:home};
+  }
   function home() {
-    current = home;
-    KSpeech.stop(); stopTimer();
-    setBar({});
-    const pick = todaysLesson();
-    const doneToday = S.streak.last === today();
-    const items = LESSONS.map(l => {
-      const p = S.progress[l.id];
-      const badge = p && p.completed ? `<span class="badge done">✓ ${p.best}%</span>` : `<span class="badge">${l.phrases.length} phrases</span>`;
-      return `<button class="lesson" data-id="${l.id}"><span class="ico">${l.icon}</span>
-        <span class="nm"><b>${esc(l.title)}</b><span>${esc(l.arTitle)}</span></span>${badge}</button>`;
-    }).join("");
-    const el = render(`
-      <button class="today" data-id="${pick.lesson.id}">
-        <span class="big">${doneToday ? "⭐" : "▶"}</span>
-        <span><span class="t1">${doneToday ? "Done today! Again?" : (pick.review ? "Today's review" : "Today's lesson")}</span><br>
-        <span class="t2">${esc(pick.lesson.title)} · ~5 min</span></span>
-      </button>
-      <div class="stats">
-        <div class="stat"><b>${streakNow()}</b><span>day streak</span></div>
-        <div class="stat"><b>${learnedCount()}/${totalPhrases()}</b><span>learned</span></div>
+    current=home; KSpeech.stop(); stopTimer(); setBar({});
+    const pick=todaysLesson(); const doneToday=S.streak.last===today();
+    const el=render(`<div class="heritage-scroll">
+      <div class="eyebrow">WELCOME TO KALLIMNI <span class="eyebrow-ar" lang="ar">أهلاً بيك</span></div>
+      <h1>Speak like<br><em>you belong.</em></h1>
+      <p class="intro">Egyptian Arabic for real conversations.</p>
+      <div class="cairo-hero">
+        <div class="cairo-sun"></div><div class="cairo-pyramid p1"></div><div class="cairo-pyramid p2"></div>
+        <div class="cairo-skyline"></div><div class="cairo-river"></div>
+        <div class="hero-content"><span class="hero-tag">YOUR DAILY JOURNEY</span><div lang="ar" class="hero-ar">يلا نتكلّم!</div><strong>${doneToday?"Keep the momentum":"Your next adventure"}</strong><small>${esc(pick.lesson.title)} · 5 minute lesson</small></div>
       </div>
-      <div class="lesson-list scroll">${items}</div>
-      <div class="home-foot"><span>Egyptian Arabic · beginner</span><button class="link" id="setBtn">⚙ Settings</button></div>
-    `, {});
-    const focusables = [...el.querySelectorAll(".today, .lesson, #setBtn")];
-    el.querySelectorAll("[data-id]").forEach(b => b.addEventListener("click", () => startLesson(b.dataset.id)));
-    el.querySelector("#setBtn").addEventListener("click", settings);
-    let f = -1;
-    const focus = i => {
-      f = (i + focusables.length) % focusables.length;
-      focusables.forEach((b, j) => b.classList.toggle("focus", j === f));
-      focusables[f].scrollIntoView({ block: "nearest" });
-    };
-    keys = {
-      up: () => focus(f <= 0 ? focusables.length - 1 : f - 1),
-      down: () => focus(f + 1),
-      side: () => (f >= 0 ? focusables[f] : focusables[0]).click(),
-      long: () => KMusic.toggle()
-    };
+      <button class="heritage-cta" id="todayStart">Continue learning <span>↗</span></button>
+      <div class="heritage-metrics"><div><b>${streakNow()} <span>✦</span></b><small>Day streak</small></div><div><b>${learnedCount()}<span>/${totalPhrases()}</span></b><small>Phrases learned</small></div></div>
+      <div class="section-heading"><div><span class="eyebrow">EXPLORE</span><h2>Your lessons</h2></div><button id="allLessons">See all ↗</button></div>
+      <div class="heritage-list">${LESSONS.slice(0,3).map((l,i)=>`<button class="heritage-lesson" data-id="${l.id}"><span class="lesson-index">${String(i+1).padStart(2,"0")}</span><span class="lesson-copy"><b>${esc(l.title)}</b><small lang="ar">${esc(l.arTitle)}</small></span><span class="lesson-arrow">↗</span></button>`).join("")}</div>
+      <button class="settings-link" id="setBtn">⚙ Settings & pronunciation</button>
+    </div>${navigation("home")}`);
+    el.querySelector("#todayStart").onclick=()=>startLesson(pick.lesson.id);
+    el.querySelector("#allLessons").onclick=lessonLibrary;
+    el.querySelector("#setBtn").onclick=settings;
+    el.querySelectorAll("[data-id]").forEach(btn=>btn.onclick=()=>startLesson(btn.dataset.id));
+    bindNavigation(el);
+    const focusables=[...el.querySelectorAll("#todayStart,.heritage-lesson,#allLessons,#setBtn,[data-nav]")];let f=-1;
+    const focus=i=>{f=(i+focusables.length)%focusables.length;focusables.forEach((x,j)=>x.classList.toggle("focus",i===j));focusables[f].scrollIntoView({block:"nearest"});};
+    keys={up:()=>focus(f<=0?focusables.length-1:f-1),down:()=>focus(f+1),side:()=>focusables[f>=0?f:0].click(),long:()=>KMusic.toggle()};
   }
 
   // ======================================================
