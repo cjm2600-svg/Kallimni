@@ -117,6 +117,7 @@
   }
   function setShuffle(value){prefs.shuffle=!!value;persist();emit();}
   function setRepeat(value){prefs.repeat=["all","one","off"].includes(value)?value:"all";persist();emit();}
+  function tick(){if(!playing)return;scheduleBar();if(playing)timer=setTimeout(tick,currentTrack().tempo*6*1000);}
   function ensureAudio(){
     if(ctx)return;
     ctx=new AudioContextClass();
@@ -135,12 +136,12 @@
     try{
       ensureAudio();await ctx.resume();if(playing)return true;
       playing=true;lastError=null;bar=0;playedBars=0;generation++;adjust();
-      scheduleBar();timer=setInterval(scheduleBar,currentTrack().tempo*6*1000);
+      scheduleBar();timer=setTimeout(tick,currentTrack().tempo*6*1000);
       emit();return true;
     }catch(e){lastError="Tap play to enable audio.";emit();return false;}
   }
   function pause(){
-    playing=false;generation++;if(timer)clearInterval(timer);timer=null;
+    playing=false;generation++;if(timer)clearTimeout(timer);timer=null;
     for(const osc of active){try{osc.stop();}catch(e){}}
     active.clear();emit();
   }
