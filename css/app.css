@@ -176,3 +176,30 @@ button:focus-visible, .focus { outline: 2px solid var(--cyan); outline-offset: 1
 #toast.show { opacity: 1; transform: none; }
 
 @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+
+/* Egyptian-inspired sandstone, Nile blue and geometric ornamentation. */
+:root {
+  --navy: #102b39; --navy-2: #173b49; --navy-3: #225264;
+  --line: #52747a; --orange: #c9914c; --orange-soft: #f0c58a;
+  --cyan: #7ed7d1; --cyan-dim: #286d71; --text: #fff5dc;
+  --muted: #c1d2c9;
+}
+html, body {
+  background-color: #102b39;
+  background-image:
+    repeating-linear-gradient(45deg, transparent 0 17px, rgba(224,177,102,.055) 17px 19px, transparent 19px 36px),
+    radial-gradient(ellipse at 50% 8%, rgba(219,164,83,.18), transparent 70%);
+}
+#app::before {
+  content: ""; position: absolute; inset: 32px 0 0;
+  pointer-events: none; opacity: .2; z-index: 0;
+  background:
+    linear-gradient(135deg, transparent 47%, #d4ab6e 48% 52%, transparent 53%) 16px 100% / 92px 65px no-repeat,
+    linear-gradient(225deg, transparent 47%, #d4ab6e 48% 52%, transparent 53%) 16px 100% / 92px 65px no-repeat,
+    repeating-linear-gradient(90deg, transparent 0 17px, rgba(227,184,109,.25) 18px, transparent 19px 36px);
+}
+#bar { border-bottom: 2px solid #bd955c; background: linear-gradient(90deg,#173b49,#244b53,#173b49); z-index: 1; }
+#view { z-index: 1; }
+.screen { background: linear-gradient(180deg, rgba(13,40,51,.72),rgba(13,40,51,.87)); }
+.today { background: linear-gradient(135deg,#ad7238,#d7a45c); box-shadow: 0 2px 0 #704d2b; }
+.card,.lesson,.stat,.opt,.track { background-color: rgba(25,63,73,.93); }
